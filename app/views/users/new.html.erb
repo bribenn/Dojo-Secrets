@@ -1,0 +1,32 @@
+<div class="container-fluid hero register">
+	<h1>Register</h1>
+	<form action="/users" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<div class="form-group">
+			<label for="name">Name:</label>
+			<input class="form-control" id="name" type="text" name="user[name]">
+		</div>
+		<div class="form-group">
+			<label for="email">Email:</label>
+			<input class="form-control" id="email" type="email" name="user[email]">
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password:</label>
+			<input class="form-control" id="pwd" type="password" name="user[password]">
+		</div>
+		<div class="form-group">
+			<label for="pwd_confirm">Password Confirmation:</label>
+			<input class="form-control" type="password" id="pwd_confirm" name="user[password_confirmation]">
+		</div>
+		<input type="submit" class="btn btn-default" value="Join">
+	</form>
+	<a href="/"><button type="button" class="btn btn-basic">Cancel</button></a>
+
+	<div class="errors">
+		<% if flash[:registration_errors] %>
+			<% flash[:registration_errors].each do |error| %>
+				<p> <%= error %> </p>
+			<% end %>
+		<% end  %>
+	</div>
+</div>

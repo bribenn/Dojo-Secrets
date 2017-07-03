@@ -42,7 +42,7 @@
     	</div>
     	<div class="col-md-4 add_secret">
     		<h3 class="show">Add a Secret</h3>
-			<div class="">
+			<div>
 				<form action="/secrets" method="post">
 					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 					<textarea placeholder="Type your secret here" name="secret[content]"></textarea>

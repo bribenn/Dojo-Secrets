@@ -1,5 +1,12 @@
 <div class="container-fluid hero register">
 	<h1>Register</h1>
+	<div class="errors">
+		<% if flash[:registration_errors] %>
+			<% flash[:registration_errors].each do |error| %>
+				<p> <%= error %> </p>
+			<% end %>
+		<% end  %>
+	</div>
 	<form action="/users" method="post">
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 		<div class="form-group">
@@ -22,11 +29,4 @@
 	</form>
 	<a href="/"><button type="button" class="btn btn-basic">Cancel</button></a>
 
-	<div class="errors">
-		<% if flash[:registration_errors] %>
-			<% flash[:registration_errors].each do |error| %>
-				<p> <%= error %> </p>
-			<% end %>
-		<% end  %>
-	</div>
 </div>

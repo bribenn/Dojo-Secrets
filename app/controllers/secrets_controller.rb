@@ -3,7 +3,7 @@ class SecretsController < ApplicationController
 	before_action :require_login
 
   def index
-  	@secrets = Secret.all.includes(:likes, :user)
+  	@secrets = Secret.all.includes(:likes, :user).order('created_at DESC')
   	@secrets_liked = current_user.secrets_liked_ids
   end
 
